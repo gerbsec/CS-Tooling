@@ -1,6 +1,6 @@
 ###SMB options###
-set pipename "ntsvcs##";
-set pipename_stager "scerpc##";
+set pipename "defnotacsbeacon##";
+set pipename_stager "defnotacsbeacon2##";
 set smb_frame_header "";
 
 ###TCP options###
