@@ -21,7 +21,7 @@ int main()
     PPROCESS_INFORMATION process_info = new PROCESS_INFORMATION();
 
     // null terminated command line
-    wchar_t cmd[] = L"notepad.exe\0";
+    wchar_t cmd[] = L"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\0";
 
     // create process
     BOOL success = CreateProcess(
