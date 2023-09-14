@@ -1,7 +1,9 @@
 #include <Windows.h>
+#include <winternl.h>
 #include <winhttp.h>
 #include <iostream>
 #include <vector>
+#include "Native.h"
 
 #pragma comment(lib, "winhttp.lib")
 
