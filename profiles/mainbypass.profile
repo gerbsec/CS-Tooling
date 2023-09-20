@@ -3,14 +3,6 @@ set pipename "defnotacsbeacon##";
 set pipename_stager "defnotacsbeacon2##";
 set smb_frame_header "";
 
-###TCP options###
-set tcp_port "8000";
-set tcp_frame_header "";
-
-###SSH BANNER###
-set ssh_banner "Welcome to Ubuntu 18.04.4 LTS (GNU/Linux 4.15.0-1065-aws x86_64)";
-set ssh_pipename "SearchTextHarvester##";
-
 ###Steal Token
 set steal_token_access_mask "11";
 
