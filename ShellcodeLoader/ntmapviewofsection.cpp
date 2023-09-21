@@ -1,3 +1,4 @@
+// MULTI-THREADED MT
 #include <Windows.h>
 #include <winternl.h>
 #include <winhttp.h>
