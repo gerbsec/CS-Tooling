@@ -82,7 +82,7 @@ process-inject {
     set allocator "NtMapViewOfSection";
     set bof_allocator "NtMapViewOfSection";
     #set bof_allocator "VirtualAlloc";
-    set bof_reuse_memory "true";
+    set bof_reuse_memory "false";
     set min_alloc "16700";
     set userwx "false";  
     set startrwx "false";
