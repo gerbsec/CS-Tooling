@@ -1,7 +1,7 @@
 #include "common_mask.c"
 #include "mask_text_section.c"
 /* do not change the sleep_mask function parameters void(___stdcall *pSleep) */
-void sleep_mask(SLEEPHASKP *parms, SLEEPMASK_ARGS *args, DWORD time)
+void sleep_mask(SLEEPMASKP *parms, SLEEPMASK_ARGS *args, DWORD time)
 {
 
 #if MASK_TEXT_SECTION
