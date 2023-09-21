@@ -80,7 +80,7 @@ stage {
 ###Process Inject Block###
 process-inject {
     set allocator "NtMapViewOfSection";
-    set bof_allocator "NtMapViewOfSection";
+    set bof_allocator "MapViewOfFile";
     #set bof_allocator "VirtualAlloc";
     set bof_reuse_memory "false";
     set min_alloc "16700";
