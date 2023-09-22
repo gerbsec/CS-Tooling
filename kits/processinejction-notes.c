@@ -1,3 +1,4 @@
+// ./build.sh /mnt/c/Tools/cobaltstrike/custom-injection
 // IMPORT
 WINBASEAPI LPVOID WINAPI KERNEL32$VirtualAllocEx(HANDLE, LPVOID, SIZE_T, DWORD, DWORD);
 WINBASEAPI BOOL WINAPI KERNEL32$WriteProcessMemory(HANDLE, LPVOID, LPCVOID, SIZE_T, SIZE_T*);

@@ -1,3 +1,4 @@
+// ./build.sh "pipe" MapViewOfFile 296948 0 true false none /mnt/c/Tools/cobaltstrike/artifacts
 /*
  * Artifact Kit - A means to disguise and inject our payloads... *pHEAR*
  * (c) 2022 HelpSystems LLC

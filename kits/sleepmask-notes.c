@@ -1,3 +1,4 @@
+// ./build.sh 47 WaitForSingleObject true none /mnt/c/Tools/cobaltstrike/sleep-mask
 #include "common_mask.c"
 #include "mask_text_section.c"
 /* do not change the sleep_mask function parameters void(___stdcall *pSleep) */
