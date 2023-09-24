@@ -18,7 +18,6 @@ stage {
     set magic_mz_x86    "OOPS";
     set userwx 	        "false";
     set cleanup	        "true";
-    set sleep_mask	"true";
     set stomppe	        "true";
     set obfuscate	"true";
     set rich_header    "\x71\xd5\xdf\x19\x38\x77\xab\x8d\x2b\x41\x5e\xcb\x98\x22\x05\x90";
