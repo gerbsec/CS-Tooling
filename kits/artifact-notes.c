@@ -3,7 +3,7 @@
    for (int x = 0; x < sizeof(process); x++)
    {
       char *ptr1;
-      ptr1 = (char *)buffer + x;
+      ptr1 = (char *)process + x;
       GetTickCount();
       *ptr1 = *ptr1 ^ key[x % 8];
    }
