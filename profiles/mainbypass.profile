@@ -29,7 +29,7 @@ stage {
     set userwx 	        "false";
     set cleanup	        "true";
     set stomppe	        "true";
-    set obfuscate	    "true";
+    set obfuscate    "true";
     set sleep_mask      "true";
     set rich_header     "\x71\xd5\xdf\x19\x38\x77\xab\x8d\x2b\x41\x5e\xcb\x98\x22\x05\x90";
     
