@@ -7,7 +7,7 @@ set smb_frame_header "";
 ###TCP options###
 set tcp_port "8001";
 set tcp_frame_header "";
-
+set tasks_max_size "1604500";
 
 ###SSH options###
 set ssh_banner "Welcome to Ubuntu 18.04.4 LTS (GNU/Linux 4.15.0-1065-aws x86_64)";
