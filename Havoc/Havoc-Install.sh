@@ -5,7 +5,7 @@ wget https://go.dev$go
 sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf $(echo $go | awk -F "/" '{print $3}')
 rm -rf $(echo $go | awk -F "/" '{print $3}')
 mkdir -p ~/go
-echo -e "export PATH=~/.local/bin:$PATH\nexport PATH=$PATH:/usr/local/go/bin\nexport GOPATH=$HOME/go\nexport PATH=$PATH:$GOPATH/bin\n" > ~/.zshrc
+echo -e "export PATH=~/.local/bin:$PATH\nexport PATH=$PATH:/usr/local/go/bin\nexport GOPATH=$HOME/go\nexport PATH=$PATH:$GOPATH/bin\n" >> ~/.zshrc
 
 
 git clone https://github.com/HavocFramework/Havoc.git
