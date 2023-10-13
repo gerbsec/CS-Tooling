@@ -17,8 +17,9 @@ go mod download golang.org/x/sys
 go mod download github.com/ugorji/go
 cd ..
 
-# Install musl Compiler & Build Binary (From Havoc Root Directory)
+# Build the client Binary (From Havoc Root Directory)
 make ts-build
+make client-build
 
 # Run the teamserver
-./havoc server --profile ./profiles/havoc.yaotl -v --debug
+echo "./havoc server --profile ../profiles/office365.yaotl -v --debug"
