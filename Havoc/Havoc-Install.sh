@@ -23,3 +23,4 @@ make client-build
 
 # Run the teamserver
 echo "./havoc server --profile ../profiles/office365.yaotl -v --debug"
+echo -e "export PATH=~/.local/bin:$PATH\nexport PATH=$PATH:/usr/local/go/bin\nexport GOPATH=$HOME/go\nexport PATH=$PATH:$GOPATH/bin\n" > ~/.zshrc
