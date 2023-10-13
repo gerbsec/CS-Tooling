@@ -12,6 +12,21 @@ Operators {
     user "gerbsec" {
         Password = "gerbsec"
     }
+    user "jackt" {
+        Password = "jackt"
+    }
+    user "jackw" {
+        Password = "jackw"
+    }
+    user "jacob" {
+        Password = "jacob"
+    }
+    user "brandon" {
+        Password = "brandon"
+    }
+    user "logan" {
+        Password = "logan"
+    }
 }
 Listeners {
     Http {
