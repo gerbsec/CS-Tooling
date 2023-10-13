@@ -15,7 +15,7 @@ Operators {
 }
 Listeners {
     Http {
-        Name         = "Http"
+        Name         = "http"
         KillDate     = "2024-06-26 16:17:31"
         WorkingHours = "0:00-23:59"
         Hosts        =  ["10.0.254.201"]
@@ -34,7 +34,7 @@ Listeners {
     }
 
     Http {
-        Name         = "Agent Listener - HTTP/s"
+        Name         = "https"
         KillDate     = "2023-12-04 11:35:06"
         WorkingHours = "0:00-23:59"
         Hosts        =  ["10.0.254.201"]
@@ -53,7 +53,7 @@ Listeners {
     }
 
     Smb {
-        Name         = "Pivot - Smb"
+        Name         = "smb"
         PipeName     = "tcppipe.61093-17423-418735"
     }
 }
