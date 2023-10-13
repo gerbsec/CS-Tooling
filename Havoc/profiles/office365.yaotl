@@ -1,6 +1,6 @@
 Teamserver {
     Host = "0.0.0.0"
-    Port = "10400"
+    Port = 10400
 
     Build {
         Compiler64 = "/usr/bin/x86_64-w64-mingw32-gcc"
@@ -73,7 +73,7 @@ Listeners {
     }
 }
 Demon {
-    Sleep  = 49
+    Sleep  = 15
     Jitter = 55
     Injection {
         Spawn64 = "C:\\Windows\\System32\\dasHost.exe d1c56252-c683-4e0fa7e2add186e68ebd7"
