@@ -18,8 +18,8 @@ Listeners {
         Name         = "Http"
         KillDate     = "2024-06-26 16:17:31"
         WorkingHours = "0:00-23:59"
-        Hosts        =  ["10.0.254.201", "10.0.254.202", "10.0.254.203", "10.0.254.204", "10.0.254.205", "10.0.254.206"]
-        HostBind     = "0.0.0.0"
+        Hosts        =  ["10.0.254.201"]
+        HostBind     = "10.0.254.201"
         HostRotation = "round-robin"
         PortBind     =  80
         PortConn     =  80
@@ -37,8 +37,8 @@ Listeners {
         Name         = "Agent Listener - HTTP/s"
         KillDate     = "2023-12-04 11:35:06"
         WorkingHours = "0:00-23:59"
-        Hosts        =  ["10.0.254.201", "10.0.254.202", "10.0.254.203", "10.0.254.204", "10.0.254.205", "10.0.254.206"]
-        HostBind     = "0.0.0.0"
+        Hosts        =  ["10.0.254.201"]
+        HostBind     = "10.0.254.201"
         HostRotation = "round-robin"
         PortBind     =  443
         PortConn     =  443
