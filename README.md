@@ -10,3 +10,4 @@ run sc.exe \\Wkstn-2 start piv1
 ```
 
 pivots with scheduled tasks?
+no
