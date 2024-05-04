@@ -1,6 +1,8 @@
 # Look for perms
 
 
+- https://www.g0dmode.biz/active-directory-enumeration/applocker-enumeration
+
 - Search for writable directories
 ```cmd
 accesschk.exe "student" C:\Windows -wus
