@@ -1,4 +1,3 @@
-# CS-Tooling
-Random tools that i wrote/found.
+# Red Team Tradecraft
 
-I want to add some tooling from maldev academy that ill writ soon. 
+Most tools I wrote, some tools I borrowed from others. I mainly use this as mynotes platform hopefully it could be of good use for someone ethical :D
