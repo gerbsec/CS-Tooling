@@ -32,5 +32,5 @@ Invoke-ReflectivePEInjection -PEBytes $bytes -ProcId $procid
 
 - check if applocker blocking:
 ```
-`Get-WinEvent -LogName "Microsoft-Windows-AppLocker/MSI and Script" -MaxEvents 10`
+Get-WinEvent -LogName "Microsoft-Windows-AppLocker/MSI and Script" -MaxEvents 10
 ```
