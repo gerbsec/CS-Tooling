@@ -7,12 +7,11 @@ using System;
 public class TestClass
 {
     [DllImport("kernel32.dll", SetLastError = true, ExactSpelling = true)]
-    static extern IntPtr VirtualAlloc(IntPtr lpAddress, uint dwSize,
-uint flAllocationType, uint flProtect);
+    static extern IntPtr VirtualAlloc(IntPtr lpAddress, uint dwSize,uint flAllocationType, uint flProtect);
 
     [DllImport("kernel32.dll")]
     static extern IntPtr CreateThread(IntPtr lpThreadAttributes, uint dwStackSize,
-      IntPtr lpStartAddress, IntPtr lpParameter, uint dwCreationFlags, IntPtr lpThreadId);
+    IntPtr lpStartAddress, IntPtr lpParameter, uint dwCreationFlags, IntPtr lpThreadId);
 
     [DllImport("kernel32.dll")]
     static extern UInt32 WaitForSingleObject(IntPtr hHandle, UInt32 dwMilliseconds);

