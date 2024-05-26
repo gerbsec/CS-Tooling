@@ -12,19 +12,8 @@ systemctl enable sliver
 - Run the following to install tooling:
 ```bash
 sliver
-armory install cs-remote-ops-bofs
-armory install kerberos
-armory install situational-awareness
-armory install windows-bypass
-armory install windows-credentials
-armory install windows-pivot
-armory install .net-execute
-armory install .net-recon
-armory install .net-pivot
-armory install cs-remote-ops-bofs
-armory install c2-tool-collection
+armory install *
 ```
-
 
 # Stagers
 
