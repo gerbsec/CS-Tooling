@@ -187,7 +187,7 @@ post-ex {
 
 ###Malleable PE/Stage Block###
 stage {
-    set allocator      "HeapAlloc"; # Options are: HeapAlloc, MapViewOfFile, and VirtualAlloc
+    set allocator      "VirtualAlloc"; # Options are: HeapAlloc, MapViewOfFile, and VirtualAlloc
     set magic_mz_x86   "OKKA";
     set magic_mz_x64   "OKKA";
     set magic_pe       "NE";
@@ -218,9 +218,8 @@ stage {
     # Details can be found in the In-memory Evasion video series. https://youtu.be/uWVH9l2GMw4
 
 
-    set module_x86 "wwanmm.dll";
-    set module_x64 "wwanmm.dll";
-
+    set module_x64 "netshell.dll";
+    set module_x86 "netshell.dll";
 
     set syscall_method "Indirect";
 
